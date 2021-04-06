@@ -4,11 +4,17 @@ console.log(document);
 const body = document.querySelector("body");
 console.log (body);
 
-body.addEventListener("wheel", () => {
+window.addEventListener("load", () => {
     body.style.backgroundColor = "lightsalmon";
+    body.style.transition = "7s";
+});
+
+body.addEventListener("wheel", () => {
+    body.style.backgroundColor = "cyan";
     body.style.transition = "3s";
 });
-body.addEventListener("mouseleave", () => {
+
+body.addEventListener("keydown", () => {
     body.style.backgroundColor = "white";
     body.style.transition = "3s";
 });
@@ -27,21 +33,29 @@ headerNavBar.addEventListener("mouseleave", function(){
 
 const headerImage = document.querySelector(".intro img");
 // console.log(headerImage);
-headerImage.addEventListener("mouseenter", ()=>{
-    headerImage.src="https://i0.wp.com/www.upbuild.io/wp-content/uploads/2020/08/yellow-volkswaggon-bus-arches-scaled.jpg?fit=2560%2C1810&ssl=1";
-    headerImage.height = "300px";
+headerImage.addEventListener("mouseover", ()=>{
+    headerImage.src="https://www.mewallpaper.com/thumbnail/city/9396-vw-bus-toy-hq-image-free-wallpaper.jpg";
+    headerImage.style.transform = "rotateY(180deg)";
+    headerImage.style.transition = "2s";
+    headerImage.style.width = "900px";
+    headerImage.style.height = "300px";
 })
 
 const contentSectionImages = document.querySelectorAll(".content-section img");
 console.log(contentSectionImages);
 contentSectionImages.forEach((element)=>{
     element.addEventListener("mouseenter", (event)=>{
-        // event.target.style.transform = "scale(1.1)";
         event.target.style.transition = "transform 1.3s";
         event.target.style.transform = "rotateY(360deg)";
     })
-    // element.addEventListener("mouseleave", (event)=>{
-    //     event.target.style.transform = "scale(1)";
-    //     event.target.style.transition = "transform .5s";
-    // })
+});
+
+let h2Titles = document.querySelectorAll("h2");
+
+h2Titles.forEach((element) => {  
+    element.addEventListener("mouseenter", (event) => {
+        event.target.style.fontSize = "3.5rem";
+        event.target.style.fontWeight = "bold";
+        event.target.style.transition = "1s";
+    })
 })
